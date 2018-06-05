@@ -1,0 +1,17 @@
+package p1a;
+
+public class NFC extends Totem{
+	
+	String NFC;
+
+	public NFC(Jaula jaula, String NFC) {
+		super(jaula);
+		this.NFC = NFC;
+	}
+	
+	public void getNFC() {
+		getInfo();
+	}
+	
+
+}

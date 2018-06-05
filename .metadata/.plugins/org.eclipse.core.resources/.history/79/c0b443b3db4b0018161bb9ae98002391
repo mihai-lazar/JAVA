@@ -1,0 +1,48 @@
+package asistentePOO;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimerTask;
+
+public class TimerFeedLlamadas extends TimerTask {                                           							//Clase Timer
+    public void run() {
+    	for(int i = 0; i < MainAsistente.getAgendaUsuarios().getLargo(); i ++) {
+    		UnUsuario usuarioActualizacionFeedLlamadas = MainAsistente.getAgendaUsuarios().getUsuario(i);  
+    		
+			Calendar fechaHoraActual = Calendar.getInstance();
+			Date fechaHoraActualDate = fechaHoraActual.getTime();	
+    		UnaLlamada nuevaLlamada = new UnaLlamada("Hola", "9999999", fechaHoraActualDate);
+    			if(usuarioActualizacionFeedLlamadas.getEstado() == EstadoUsuario.DESOCUPADO) {
+    				usuarioActualizacionFeedLlamadas.getLlamadasDesocupado().agregarLlamada(nuevaLlamada);
+    				if(usuarioActualizacionFeedLlamadas.equals(MainAsistente.getUsuarioActual())) { 
+    						String horaFechaString  = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(nuevaLlamada.getFechaHora());  
+    						MainAsistente.getLlamadasListaDefault().addElement("<html>" + nuevaLlamada.getNombre() + "<br>" +  nuevaLlamada.getNumero() + "<br>" + horaFechaString + "</html>");             
+    						MainAsistente.getLlamadasLista().setModel(MainAsistente.getLlamadasListaDefault());                                                    
+    		    	}
+    		    }else {
+    		    	usuarioActualizacionFeedLlamadas.getLlamadasOcupado().agregarLlamada(nuevaLlamada);	   	
+    		    }
+    		
+    		
+    		
+    		for(int e = 0; e < usuarioActualizacionFeedLlamadas.getIntereses().getLargo(); e ++) {
+    			if(usuarioActualizacionFeedLlamadas.getIntereses().getInteres(e) == EstadoIntereses.INTERESADO)  {
+    		    	
+    				UnaNoticia nuevaNoticia = new UnaNoticia(MainAsistente.getIntereses().get(e).getText(), "no");
+    		    	if(usuarioActualizacionFeedLlamadas.getEstado() == EstadoUsuario.DESOCUPADO) {
+    		    		usuarioActualizacionFeedLlamadas.getFeedDesocupado().agregarNoticia(nuevaNoticia);
+    		    		//if (MainAsistente.nombreUsuarioActivo.getText() != "") {
+    		    			if(usuarioActualizacionFeedLlamadas.equals(MainAsistente.getUsuarioActual())) { 		    				   		    				
+    		    				MainAsistente.getFeedListaDefault().addElement(MainAsistente.getIntereses().get(e).getText());             
+    		    				MainAsistente.getFeedLista().setModel(MainAsistente.getFeedListaDefault());                                                    
+    		    			//}
+    		    		}
+    		    	}else {
+    		    		usuarioActualizacionFeedLlamadas.getFeedOcupado().agregarNoticia(nuevaNoticia);	    		    		
+    		    	}
+    		    }
+    		}
+    	}
+   }
+}

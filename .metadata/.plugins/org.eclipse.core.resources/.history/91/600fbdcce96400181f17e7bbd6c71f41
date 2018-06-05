@@ -1,0 +1,14 @@
+package p1a;
+
+
+
+public class Animal {
+	String id;
+	String nombre;
+	
+	public Animal(String id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+	}
+
+}

@@ -1,0 +1,22 @@
+package clase_5_areglos_objetos;
+
+public class Ejercicio_5_6 
+{
+		public static void baffle(String blimp) {
+			System.out.println(blimp);
+			zippo("ping", -5);
+		}
+		
+		public static void zippo(String quince, int flag) {
+		if (flag < 0) { //2
+			System.out.println(quince + " zoop");
+		} else { //3
+			System.out.println("ik");
+			baffle(quince);
+			System.out.println("boo-wa-ha-ha");           
+		}
+		}
+		public static void main(String[] args) {
+			zippo("rattle", 13); //1
+		}
+}

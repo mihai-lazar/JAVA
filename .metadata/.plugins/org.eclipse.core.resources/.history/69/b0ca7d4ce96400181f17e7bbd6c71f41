@@ -1,0 +1,10 @@
+package p1a;
+
+public class Especie extends Animal{
+
+	public Especie(String id, String nombre) {
+		super(id, nombre);
+		// TODO Auto-generated constructor stub
+	}
+
+}

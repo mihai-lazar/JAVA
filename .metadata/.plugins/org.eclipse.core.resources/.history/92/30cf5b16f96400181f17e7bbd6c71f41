@@ -1,0 +1,21 @@
+package p3ab;
+
+
+public class Smartphone extends User{
+	
+	String coordenadas;
+	
+	public Smartphone(String coordenadas) {
+		this.coordenadas = coordenadas;
+	}
+	
+	public String getCoor() {
+		return coordenadas;
+	}
+	
+	public void setCoor(String coord) {
+		coordenadas = coord;
+	}
+	
+
+}

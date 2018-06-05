@@ -1,0 +1,22 @@
+package asistentePOO;
+
+import java.util.Date;
+
+public class Tarea {
+	private String nombre;
+	private Date fechaHora;
+	
+	public Tarea(String nombre, Date fechaHora) {
+	    this.nombre = nombre;
+	    this.fechaHora = fechaHora;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	public Date getFechaHora() {
+	    return fechaHora;
+	}
+}
+

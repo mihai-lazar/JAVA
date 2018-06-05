@@ -1,0 +1,61 @@
+package asistentePOO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario {
+	
+	private String nombre;
+	
+	private int tiempoAviso = 20;
+	private EstadoUsuario estadoActual = EstadoUsuario.DESOCUPADO;
+	private AvisoUsuario avisoEstado = AvisoUsuario.NO_AVISADO;
+	private AgendaTareas agendaTareas = new AgendaTareas();
+	
+	int [] intereses = {0, 0, 0, 0, 0, 0};
+	List<String> feedDesoupado = new ArrayList<String>();
+	List<String> feedOcupado = new ArrayList<String>();
+	
+	
+	//NOMBRE
+	public Usuario(String nombre) {
+	    this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	//TIEMPO AVISO
+	public  void setTiempo(int tiempo) {
+		tiempoAviso = tiempo;
+	}
+	
+	public  int getTiempo() {
+		return tiempoAviso;
+	}
+	
+	//ESTADO
+	public void setEstado(EstadoUsuario estado) {
+		estadoActual = estado;
+	}
+	
+	public EstadoUsuario getEstado() {
+		return estadoActual;
+	}
+	
+	//AVISO
+	public void setAviso(AvisoUsuario aviso) {
+		avisoEstado = aviso;
+	}
+
+	public AvisoUsuario getAviso() {
+		return avisoEstado;
+	}
+	
+	//LISTA TAREAS
+	public AgendaTareas getAgendaTareas() {
+		return agendaTareas;
+	}
+	
+}

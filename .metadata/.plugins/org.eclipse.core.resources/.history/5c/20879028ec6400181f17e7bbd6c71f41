@@ -1,0 +1,11 @@
+package p1a;
+
+public class Totem extends Jaula{
+
+	public Totem(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

@@ -1,0 +1,33 @@
+package p1ab;
+
+
+public class Smartphone {
+	
+	String coordenadas;
+	String NFC;
+	String QR;
+	
+	public Smartphone(String coordenadas, String NFC, String QR) {
+		this.coordenadas = coordenadas;
+		this.NFC = NFC;
+		this.QR = QR;
+	}
+	
+	public String getCoor() {
+		return coordenadas;
+	}
+	
+	public void setCoor(String coord) {
+		coordenadas = coord;
+	}
+	
+	public String getNFC() {
+		return NFC;
+	}
+	
+	public String getQR() {
+		return QR;
+	}
+	
+
+}

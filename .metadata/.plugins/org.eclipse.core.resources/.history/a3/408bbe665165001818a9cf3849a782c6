@@ -1,0 +1,29 @@
+package exercise18;
+
+public class Ex142 extends Player{
+
+	public Ex142(String name) {
+		super(name);
+	}
+	
+	private static int eval(EightsCard card, int total,  boolean vary){ 
+	      return eval(card.getRank(), total, vary); 
+	   }
+
+	   /**
+	    * Evaluate value of certain card under certain condition 
+	    */
+	private static int eval(int rank, int total, boolean vary){
+	      if (rank > 10){
+	         return 10;
+	      }
+	      if (rank == 8){
+	         if (total < 5 && !vary){
+	            return 12;
+	         }
+	         return 0;
+	      }
+	      return rank;
+	}
+
+}

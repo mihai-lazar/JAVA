@@ -1,0 +1,24 @@
+package p1a;
+
+public class MainApp {
+	
+	public static void main(String[] args) {
+		
+		Zoologico ZOO = new Zoologico("WinBoo");
+		
+		Especie LOBO = new Especie("1", "JUAL", "LOBO", "OBEJAS Y CIERVOS", "GRANDE", "ALASKA");
+		Especie OBEJA = new Especie("2", "ALDS", "OBEJA", "PASTOS", "CHICO", "CHILE");
+		Especie CIERVO = new Especie("3", "QVEX", "CIERVO", "PASTOS", "CHICO", "AGRENTINA");
+		
+		Jaula JAULA = new Jaula("1");
+		
+		JAULA.addAnimal(LOBO);
+		JAULA.addAnimal(OBEJA);
+		JAULA.addAnimal(CIERVO);
+		
+		JAULA.getDatos();
+		
+		//LOBO.showDatos();
+	}
+
+}

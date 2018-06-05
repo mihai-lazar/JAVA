@@ -1,0 +1,45 @@
+package p1a;
+
+public class MainApp {
+	
+	public static void main(String[] args) {
+		
+		Zoologico ZOO = new Zoologico("WinBoo");
+		
+		Especie LOBO = new Especie("1", "JUAL", "LOBO", "OBEJAS Y CIERVOS", "GRANDE", "ALASKA");
+		Especie OBEJA = new Especie("2", "ALDS", "OBEJA", "PASTOS", "CHICO", "CHILE");
+		Especie CIERVO = new Especie("3", "QVEX", "CIERVO", "PASTOS", "CHICO", "AGRENTINA");
+		
+		Jaula JAULA1 = new Jaula("1");
+		Jaula JAULA2 = new Jaula("2");
+		
+		JAULA1.addAnimal(LOBO);
+		JAULA2.addAnimal(OBEJA);
+		JAULA2.addAnimal(CIERVO);
+		
+		ZOO.addJaula(JAULA1);
+		ZOO.addJaula(JAULA2);
+		
+		Totem TOTEM1 = new Totem(JAULA1, "NFC1", "QR1");
+		Totem TOTEM2 = new Totem(JAULA2, "NFC2", "QR2");
+		
+		ZOO.addTotem(TOTEM1);
+		ZOO.addTotem(TOTEM2);
+		
+		//LOBO.showDatos();
+		
+		
+		//PRUEBA DE ACERCAMIENTO
+		//SE ASERCA UN USUARIO AL TOTEM1 CON EL CELULAR TANTO QR COMO NFC
+		System.out.println(TOTEM1.getNFC());
+		System.out.println(TOTEM2.getQR());
+		//RECIBE LOS DATOS PARA QR O NFC
+		//DESPUES SE MUESTAN LOS DATOS ACORDE A LO PEDIDO
+		ZOO.getTotemInfoNFC(TOTEM1.getNFC());	
+		ZOO.getTotemInfoQR(TOTEM2.getQR());
+		
+		
+		
+	}
+
+}

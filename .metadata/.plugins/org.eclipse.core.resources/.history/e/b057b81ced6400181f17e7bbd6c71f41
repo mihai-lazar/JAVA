@@ -1,0 +1,12 @@
+package p1a;
+
+public class NFC extends Totem{
+
+	public NFC(Jaula jaula) {
+		super(jaula);
+	}
+	
+	
+	
+
+}

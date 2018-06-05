@@ -1,0 +1,36 @@
+package control_3;
+
+public class Fibonacci_Apellido 
+{
+	public static long serieFibo(long numeroIngresado)
+	{
+		long retornado=0;
+		retornado=serieFibo(numeroIngresado-1)+serieFibo(numeroIngresado-2);
+		return retornado;
+	}
+	
+	public static long FiboRecursivo(long pos){
+		  long retornado=0;
+		  if(pos==0 || pos==1){
+		   retornado=pos;
+		  }else{
+		   retornado=FiboRecursivo(pos-2)+FiboRecursivo(pos-1);
+		  }
+		  return retornado;
+		 }
+	
+	public static void main(String[] args) 
+	{
+		int numeroIngresado = Integer.parseInt(args[0]);
+		
+		if(numeroIngresado == 0)
+			System.out.print(0);
+		if(numeroIngresado == 1)
+			System.out.print(1);
+		
+		if(numeroIngresado > 1) 
+		{
+			System.out.print(serieFibo(numeroIngresado));
+		}
+	}
+}

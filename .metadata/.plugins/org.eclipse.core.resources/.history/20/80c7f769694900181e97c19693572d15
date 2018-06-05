@@ -1,0 +1,14 @@
+package asistentePOO;
+
+import java.util.Date;
+
+public class Evento {
+	String nombre;
+	Date fechaHora;
+	
+	public Evento(String nombre, Date fechaHora) {
+	    this.nombre = nombre;
+	    this.fechaHora = fechaHora;
+	}
+}
+

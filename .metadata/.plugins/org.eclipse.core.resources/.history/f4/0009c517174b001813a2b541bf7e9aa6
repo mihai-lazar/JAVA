@@ -1,0 +1,5 @@
+package asistentePOO;
+
+public enum EstadoNoticia {
+	NO_VISTO, VISTO
+}

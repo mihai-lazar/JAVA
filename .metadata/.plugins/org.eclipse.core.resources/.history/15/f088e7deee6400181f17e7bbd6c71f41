@@ -1,0 +1,31 @@
+package p1a;
+
+public class Totem {
+	
+	Jaula jaula;
+	String NFC;
+	String QR;
+	
+	public Totem(Jaula jaula) {
+		this.jaula = jaula;
+	}
+	
+	public void getInfo(String metod) {
+		if(metod.equals("NFC"))
+			System.out.println("METODO NFC");
+		if(metod.equals("QR"))
+			System.out.println("METODO QR");
+		for(int i = 0 ; i < jaula.size() ; i++) {
+			
+		}
+	}
+	
+	public String getNFC() {
+		return NFC;
+	}
+	
+	public String getQR() {
+		return QR;
+	}
+
+}

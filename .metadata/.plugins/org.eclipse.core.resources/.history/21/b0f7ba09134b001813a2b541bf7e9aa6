@@ -1,0 +1,49 @@
+package asistentePOO;
+
+public class FeedDesocupado {
+	
+	private Noticia[] noticias = new Noticia[0];
+	
+	public FeedDesocupado() {
+	}
+	
+	//LISTA TARREAS
+	public  void removerTarea(int index) {
+		Noticia[] nuevasNoticias = new Noticia[noticias.length - 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < noticias.length ; i++) {
+	        if(i != index) {
+	        	nuevasNoticias[e] = noticias[i];
+	        	e++;
+	        }
+	    }
+	    noticias = nuevasNoticias;
+	}
+	
+	public  void agregarTarea(int index, Tarea evento) {
+		Tarea[] nuevaAgendaTareas = new Tarea[agendaTareas.length + 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < nuevaAgendaTareas.length ; i++) {
+	        if(i == index) {
+	        	nuevaAgendaTareas[i] = evento;
+	        }else {
+	        	nuevaAgendaTareas[i] = agendaTareas[e];
+	        	e++;
+	        }
+	       
+	    }
+	    agendaTareas = nuevaAgendaTareas;
+	}
+	
+	public  Tarea getTarea(int index) {
+		return agendaTareas[index];
+	}
+	
+	public  int getLargo() {
+		return agendaTareas.length;
+	}
+	
+		
+}

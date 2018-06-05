@@ -1,0 +1,56 @@
+package asistentePOO;
+
+public class ListaUsuarios {
+	
+	private Usuario[] agendaUsuarios = new Usuario[0];
+	
+	public ListaUsuarios() {
+	}
+	
+	public  void removerUsuario(int index) {
+		Usuario[] nuevaAgendaUsuarios = new Usuario[agendaUsuarios.length - 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < agendaUsuarios.length ; i++) {
+	        if(i != index) {
+	        	nuevaAgendaUsuarios[e] = agendaUsuarios[i];
+	        	e++;
+	        }
+	    }
+	    agendaUsuarios = nuevaAgendaUsuarios;
+	}
+	
+	public  void agregarUsuario(Usuario usuario) {
+		Usuario[] nuevaAgendaUsuarios = new Usuario[agendaUsuarios.length + 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < nuevaAgendaUsuarios.length ; i++) {
+	        if(i > agendaUsuarios.length - 1) {
+	        	nuevaAgendaUsuarios[i] = usuario;
+	        }else {
+	        	nuevaAgendaUsuarios[i] = agendaUsuarios[e];
+	        	e++;
+	        }
+	       
+	    }
+	    agendaUsuarios = nuevaAgendaUsuarios;
+	}
+	
+	public  Usuario getUsuario(int index) {
+		return agendaUsuarios[index];
+	}
+	
+	public  int getLargo() {
+		return agendaUsuarios.length;
+	}
+
+	public int indexOf(Usuario usuarioActual) {
+		int index = 0;
+		for(int i = 0 ; i < agendaUsuarios.length ; i++) {
+			
+		}
+		return index;
+	}
+	
+		
+}

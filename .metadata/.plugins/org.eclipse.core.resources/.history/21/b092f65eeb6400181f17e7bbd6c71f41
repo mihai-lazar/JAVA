@@ -1,0 +1,15 @@
+package p1a;
+
+import java.util.ArrayList;
+
+public class Zoologico {
+
+	String nombre;
+	ArrayList<Jaula> jaulas;
+	
+	public Zoologico(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+}

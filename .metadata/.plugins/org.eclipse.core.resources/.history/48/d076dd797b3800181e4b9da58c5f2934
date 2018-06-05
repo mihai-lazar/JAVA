@@ -1,0 +1,42 @@
+package Ejercicios;
+
+import java.util.Scanner;
+
+public class Ej3_4V2 
+{
+	private static Scanner in;
+	
+	public static int IngresoNumero()
+	{
+		int NumeroRandom = (int)(100*Math.random()) + 1;
+		System.out.println("I'm thinking of a number between 1 and 100\n(including both). Can you guess what it is?");
+		int Numero;
+		
+		in = new Scanner(System.in);
+		Numero = CheckNumero();
+		
+		System.out.println("Your guess is: " + Numero);
+		System.out.println("The number I was thinking of is: " + NumeroRandom);
+		
+		System.out.println("You were off by: " + Math.abs(Numero - NumeroRandom) + "\n");
+		return IngresoNumero();
+	}
+	
+	public static int CheckNumero()
+	{
+		System.out.print("Type a number: ");
+		int Numero = in.nextInt();
+		if(Numero > 0 && Numero < 101)
+			return Numero;
+		else
+			System.out.print("Number out of limits: \n");
+			return CheckNumero();
+	}
+
+	public static void main(String[] args) 
+	{
+		IngresoNumero();
+	}
+	
+	
+}

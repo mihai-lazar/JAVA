@@ -1,0 +1,42 @@
+package asistentePOO;
+
+import java.util.TimerTask;
+
+public class TimerFeedLlamadas extends TimerTask {                                           							//Clase Timer
+    public void run() {
+    	for(int i = 0; i < MainAsistente.getAgendaUsuarios().getLargo(); i ++) {
+    		Usuario usuarioActualizacionFeedLlamadas = MainAsistente.getAgendaUsuarios().getUsuario(i);  
+    				    	
+    		UnaLlamada nuevaLlamada = new UnaLlamada("Hola", "9999999", Date);
+    			if(usuarioActualizacionFeedLlamadas.getEstado() == EstadoUsuario.DESOCUPADO) {
+    				usuarioActualizacionFeedLlamadas.getFeedDesocupado().agregarNoticia(nuevaNoticia);
+    				if(usuarioActualizacionFeedLlamadas.equals(MainAsistente.getUsuarioActual())) { 		    				   		    				
+    						MainAsistente.feedListaDefault.addElement(MainAsistente.intereses.get(e).getText());             
+    							MainAsistente.feedLista.setModel(MainAsistente.feedListaDefault);                                                    
+    		    	}
+    		    }else {
+    		    	usuarioActualizacionFeedLlamadas.getFeedOcupado().agregarNoticia(nuevaNoticia);	    		    		
+    		    }
+    		
+    		
+    		
+    		for(int e = 0; e < usuarioActualizacionFeedLlamadas.getIntereses().getLargo(); e ++) {
+    			if(usuarioActualizacionFeedLlamadas.getIntereses().getInteres(e) == EstadoIntereses.INTERESADO)  {
+    		    	
+    				UnaNoticia nuevaNoticia = new UnaNoticia(MainAsistente.intereses.get(e).getText(), "no");
+    		    	if(usuarioActualizacionFeedLlamadas.getEstado() == EstadoUsuario.DESOCUPADO) {
+    		    		usuarioActualizacionFeedLlamadas.getFeedDesocupado().agregarNoticia(nuevaNoticia);
+    		    		//if (MainAsistente.nombreUsuarioActivo.getText() != "") {
+    		    			if(usuarioActualizacionFeedLlamadas.equals(MainAsistente.getUsuarioActual())) { 		    				   		    				
+    		    				MainAsistente.feedListaDefault.addElement(MainAsistente.intereses.get(e).getText());             
+    		    				MainAsistente.feedLista.setModel(MainAsistente.feedListaDefault);                                                    
+    		    			//}
+    		    		}
+    		    	}else {
+    		    		usuarioActualizacionFeedLlamadas.getFeedOcupado().agregarNoticia(nuevaNoticia);	    		    		
+    		    	}
+    		    }
+    		}
+    	}
+   }
+}

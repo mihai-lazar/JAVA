@@ -1,0 +1,24 @@
+package control_3;
+
+public class Fibonacci_Apellido 
+{
+	public static int serie(int numeroIngresado)
+	{
+		return 1
+	}
+	
+	public static void main(String[] args) 
+	{
+		int numeroIngresado = Integer.parseInt(args[0]);
+		
+		if(numeroIngresado == 0)
+			System.out.print(0);
+		if(numeroIngresado == 1)
+			System.out.print(1);
+		
+		if(numeroIngresado > 1) 
+		{
+			System.out.print(serie(numeroIngresado));
+		}
+	}
+}

@@ -1,0 +1,7 @@
+package p3ab;
+
+public class User {
+	String name;
+	Smartphone telefono;
+
+}

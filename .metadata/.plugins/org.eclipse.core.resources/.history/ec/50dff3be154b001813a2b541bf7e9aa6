@@ -1,0 +1,32 @@
+package asistentePOO;
+
+import java.util.Date;
+
+public class Noticia {
+	private String nombre;
+	private String url;
+	private EstadoNoticia estadoActual = EstadoNoticia.NO_VISTO;
+	
+	public Noticia(String nombre, String url) {
+	    this.nombre = nombre;
+	    this.url = url;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	public void setEstado(EstadoNoticia nuevoEstado) {
+		estadoActual = nuevoEstado;
+	}
+	
+	public EstadoNoticia getEstado() {
+		return estadoActual;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+}
+

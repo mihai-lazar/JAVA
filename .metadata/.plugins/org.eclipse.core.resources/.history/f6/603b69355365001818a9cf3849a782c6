@@ -1,0 +1,23 @@
+package exercise18;
+
+public class Ex144 extends Card{
+
+	public Ex144(int rank, int suit) {
+		super(rank, suit);
+	}
+	
+	
+	public boolean matches(Ex144 that){
+	      if (getSuit() == that.getSuit()) {
+	         return true;
+	      }
+	      if (getRank() == that.getRank()) {
+	         return true;
+	      }
+	      if (getRank() == 8) {
+	         return true;
+	      }
+	      return false;
+	}
+
+}

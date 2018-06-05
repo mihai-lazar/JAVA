@@ -1,0 +1,30 @@
+package asistentePOO;
+
+public class UnaNoticia {
+	private String nombre;
+	private String url;
+	private EstadoNoticia estadoActual = EstadoNoticia.NO_VISTA;
+	
+	public UnaNoticia(String nombre, String url) {
+	    this.nombre = nombre;
+	    this.url = url;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	public void setVista() {
+		estadoActual = EstadoNoticia.VISTA;
+	}
+	
+	public EstadoNoticia getEstado() {
+		return estadoActual;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+}
+

@@ -1,0 +1,11 @@
+package p3ab;
+
+public class User {
+	String name;
+	Smartphone telefono;
+	
+	public Smartphone(String coordenadas) {
+		this.coordenadas = coordenadas;
+	}
+
+}

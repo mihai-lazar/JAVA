@@ -1,0 +1,16 @@
+package Ejercicios;
+
+public class Ej3_4 
+{
+	public static void main(String[] args)
+	{
+		int numeroRandom = (int)(100*Math.random()) + 1 ;
+		System.out.println("I'm thinking of a number between 1 and 100");
+		double[] a = new double[args.length];
+		for (int i = 0; i < args.length; i++)
+			a[i] = Double.parseDouble(args[i]);
+		for (int i = 0; i < a.length; i++)		
+			System.out.println(sqrt(a[i], 1e-1));
+	}
+	
+}

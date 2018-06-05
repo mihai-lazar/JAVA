@@ -1,0 +1,42 @@
+package asistentePOO;
+
+public class ListaLLamadas {
+	
+	private Llamada[] agendaLlamadas = new Llamada[0];
+	
+	public ListaLLamadas() {
+	}
+	
+	public  void removerLlamada(int index) {
+		Llamada[] nuevaAgendaLlamadas = new Llamada[agendaLlamadas.length - 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < agendaLlamadas.length ; i++) {
+	        if(i != index) {
+	        	nuevaAgendaLlamadas[e] = agendaLlamadas[i];
+	        	e++;
+	        }
+	    }
+	    agendaLlamadas = nuevaAgendaLlamadas;
+	}
+	
+	public  void agregarNoticia(Llamada llamada) {
+		Llamada[] nuevasAgendaLlamadas = new Llamada[agendaLlamadas.length + 1];
+
+	    for(int i = 0 ; i < agendaLlamadas.length ; i++) {
+	    	nuevasAgendaLlamadas[i] = agendaLlamadas[i];
+	        }
+	    nuevasAgendaLlamadas[agendaLlamadas.length] = llamada;
+	    agendaLlamadas = nuevasAgendaLlamadas;
+	}
+	
+	public  Llamada getLlamadas(int index) {
+		return agendaLlamadas[index];
+	}
+	
+	public  int getLargo() {
+		return agendaLlamadas.length;
+	}
+	
+		
+}

@@ -1,0 +1,5 @@
+package p1a;
+
+public class Especie extends Animal{
+
+}

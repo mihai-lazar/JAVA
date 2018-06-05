@@ -1,0 +1,56 @@
+package asistentePOO;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimerTask;
+
+public class TareasTimer extends TimerTask {                                      //Clase Timer
+    public void run() {	
+     	
+    	int cambio = 0;
+		for(int i = 0 ; i < MainAsistente.getAgendaUsuarios().getLargo() ; i++)  {                          // removimos el usuario de la lista de usuarios
+			Usuario usuarioEventoTimer = (Usuario) MainAsistente.getAgendaUsuarios().getUsuario(i);
+			if(usuarioEventoTimer.getAgendaTareas().getLargo() > 0) {
+				Calendar fechaHoraActual = Calendar.getInstance();
+				Date fechaHoraActualDate = fechaHoraActual.getTime(); 				
+				Instant instantFechaHoraActual = Instant.ofEpochMilli(fechaHoraActualDate.getTime());
+				Instant instantFechaHoraActualMas = instantFechaHoraActual.plus(Duration.ofMinutes(usuarioEventoTimer.getTiempo()));
+			
+				Tarea eventoAgenda = usuarioEventoTimer.getAgendaTareas().getTarea(0);				
+				Instant instantFechaHoraAgenda = Instant.ofEpochMilli(eventoAgenda.getFechaHora().getTime());
+
+			
+				if(instantFechaHoraActualMas.isAfter(instantFechaHoraAgenda)) {
+					
+					if(usuarioEventoTimer.getAviso() == EstadoAvisoUsuario.NO_AVISADO) {
+						usuarioEventoTimer.setAviso(EstadoAvisoUsuario.AVISADO);
+						MainAsistente.usuariosNombresListaDefault.set(i, usuarioEventoTimer.getNombre() + " EVENTO PROXIMO");
+						cambio = 1;
+					}
+					
+					Duration duration = Duration.between(instantFechaHoraActual, instantFechaHoraAgenda);	
+					if(duration.toMinutes() + 1 == 0) {
+						usuarioEventoTimer.getAgendaTareas().removerTarea(0);
+						usuarioEventoTimer.setAviso(EstadoAvisoUsuario.NO_AVISADO);
+						MainAsistente.usuariosNombresListaDefault.set(i, usuarioEventoTimer.getNombre());
+						
+						if (MainAsistente.nombreUsuarioActivo.getText() != "") {
+							if(usuarioEventoTimer.equals(MainAsistente.getUsuarioActual())) {
+								MainAsistente.agendaEventosListaDefault.removeElementAt(0);                   // se elimina el elemento de la lista
+								MainAsistente.agendaEventosLista.setModel(MainAsistente.agendaEventosListaDefault);      //ponemos el modelo	
+							}
+						}
+						
+						cambio = 1;
+					}
+					
+				}
+			}
+		}
+		
+		if(cambio == 1)
+			MainAsistente.usuariosNombresLista.setModel(MainAsistente.usuariosNombresListaDefault);      // seteamos el modeo de la lista visible a la lista defailt
+   }
+}

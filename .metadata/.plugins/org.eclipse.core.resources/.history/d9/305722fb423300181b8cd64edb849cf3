@@ -1,0 +1,30 @@
+package AvanzeUno;
+import java.util.Objects;
+import java.util.Scanner;
+
+
+public class InAndOutV2 {
+	private static Scanner in;
+
+	public static void main(String[] args) {
+		String[] Meses = new String[10];
+		String line;
+		in = new Scanner(System.in);
+		System.out.print("ESTADO: ");
+		line = in.nextLine();
+		
+		if(Objects.equals("OCUPADO", line)) {
+			for(int i = 0; i < 10; i++)
+				Meses[i] = Integer.toString(i);
+			
+			in = new Scanner(System.in);
+			line = in.nextLine();
+		}
+		
+		if(Objects.equals("DESOCUPADO", line)) {
+			for(int i = 0; i < 10; i++)
+			System.out.println("MENSAJE: " + i);
+		}
+		
+		}
+}

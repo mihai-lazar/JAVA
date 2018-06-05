@@ -1,0 +1,9 @@
+package p1a;
+
+import java.util.ArrayList;
+
+public class Jaula {
+	
+	ArrayList<Animal> animales;
+
+}

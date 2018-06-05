@@ -1,0 +1,14 @@
+package control_3;
+
+public class Control_3 
+{
+	public static void funcion()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		
+	}
+}

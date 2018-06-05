@@ -1,0 +1,183 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JList;
+import javax.swing.JRadioButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class assistenteGui2 {
+
+	private JFrame frame;
+	private JTextField nombreUsuarioNuevo;
+	private List<Object> usuariosLista = new ArrayList<Object>();
+	DefaultListModel usuariosNombresLista = new DefaultListModel();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					assistenteGui window = new assistenteGui();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public assistenteGui2() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 878, 298);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		
+		JButton agregarUsuarioNuevo = new JButton("AGREGAR");
+		agregarUsuarioNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(nombreUsuarioNuevo.getText().trim().length() > 0)
+				{
+					Usuario nuevoUsuario = new Usuario();
+					nuevoUsuario.nombre = nombreUsuarioNuevo.getText();
+					nuevoUsuario.estado = 0;
+				    nuevoUsuario.intereses[0] = 0;				    
+					usuariosLista.add(nuevoUsuario);
+					
+					Usuario usuario = (Usuario)usuariosLista.get(usuariosLista.size()-1);					
+					
+					usuariosNombresLista.addElement("HOLA");
+					//usuariosNombresLista.setModel(usuariosNombresLista);
+					nombreUsuarioNuevo.setText("");
+				}
+			}
+		});
+		agregarUsuarioNuevo.setBounds(10, 227, 89, 23);
+		frame.getContentPane().add(agregarUsuarioNuevo);
+		
+		JButton eliminarUsuario = new JButton("ELIMINAR");
+		eliminarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int seleccionIndex=usuariosNombresLista.getSelectedIndex();
+				dlm.removeElementAt(seleccionIndex);
+			}
+		});
+		eliminarUsuario.setBounds(109, 162, 89, 23);
+		frame.getContentPane().add(eliminarUsuario);
+		
+		nombreUsuarioNuevo = new JTextField();
+		nombreUsuarioNuevo.setBounds(10, 196, 188, 20);
+		frame.getContentPane().add(nombreUsuarioNuevo);
+		nombreUsuarioNuevo.setColumns(10);
+		
+		usuariosNombresLista.setBounds(10, 28, 188, 123);
+		frame.getContentPane().add(usuariosNombresLista);
+		
+		JButton aceptarUsuario = new JButton("ACEPTAR");
+		aceptarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		aceptarUsuario.setBounds(10, 162, 89, 23);
+		frame.getContentPane().add(aceptarUsuario);
+		
+		JRadioButton estadoUsuario = new JRadioButton("OCUPADO");
+		estadoUsuario.setBounds(204, 59, 83, 23);
+		frame.getContentPane().add(estadoUsuario);
+		
+		JLabel tituloUsuarios = new JLabel("USUARIOS");
+		tituloUsuarios.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloUsuarios.setBounds(10, 12, 188, 14);
+		frame.getContentPane().add(tituloUsuarios);
+		
+		JLabel tituloFeed = new JLabel("FEED");
+		tituloFeed.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloFeed.setBounds(521, 12, 188, 14);
+		frame.getContentPane().add(tituloFeed);
+		
+		JLabel tituloAgenda = new JLabel("AGENDA");
+		tituloAgenda.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloAgenda.setBounds(323, 12, 188, 14);
+		frame.getContentPane().add(tituloAgenda);
+		
+		JList feedLista = new JList();
+		feedLista.setBounds(521, 28, 188, 222);
+		frame.getContentPane().add(feedLista);
+		
+		JList agendaLista = new JList();
+		agendaLista.setBounds(323, 28, 188, 188);
+		frame.getContentPane().add(agendaLista);
+		
+		JLabel tituloUsuarioActivo = new JLabel("USUARIO ACTIVO");
+		tituloUsuarioActivo.setBounds(208, 9, 105, 20);
+		frame.getContentPane().add(tituloUsuarioActivo);
+		
+		JLabel nombreUsuarioActivo = new JLabel("MIHAI LAZAR");
+		nombreUsuarioActivo.setBounds(208, 38, 105, 14);
+		frame.getContentPane().add(nombreUsuarioActivo);
+		
+		JButton agregarEventoAgenda = new JButton("AGREGAR");
+		agregarEventoAgenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		agregarEventoAgenda.setBounds(323, 227, 89, 23);
+		frame.getContentPane().add(agregarEventoAgenda);
+		
+		JButton eliminarEventoAgenda = new JButton("ELIMINAR");
+		eliminarEventoAgenda.setBounds(422, 227, 89, 23);
+		frame.getContentPane().add(eliminarEventoAgenda);
+		
+		JRadioButton feedDeporte = new JRadioButton("DEPORTE");
+		feedDeporte.setBounds(715, 34, 127, 23);
+		frame.getContentPane().add(feedDeporte);
+		
+		JRadioButton feedTecnologia = new JRadioButton("TECNOLOGIA");
+		feedTecnologia.setBounds(715, 59, 127, 23);
+		frame.getContentPane().add(feedTecnologia);
+		
+		JRadioButton feedNacional = new JRadioButton("NACIONAL");
+		feedNacional.setBounds(715, 85, 127, 23);
+		frame.getContentPane().add(feedNacional);
+		
+		JRadioButton feedInternacional = new JRadioButton("INTERNACIONAL");
+		feedInternacional.setBounds(715, 111, 127, 23);
+		frame.getContentPane().add(feedInternacional);
+		
+		JRadioButton feedComida = new JRadioButton("COMIDA");
+		feedComida.setBounds(715, 137, 127, 23);
+		frame.getContentPane().add(feedComida);
+		
+		JRadioButton feedModa = new JRadioButton("MODA");
+		feedModa.setBounds(715, 162, 127, 23);
+		frame.getContentPane().add(feedModa);
+	}
+}
+
+class Usuario
+{
+	String nombre;
+	int estado;
+	int[] intereses = new int[6];
+	List<String> agenda = new ArrayList<>();
+}

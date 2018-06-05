@@ -1,0 +1,24 @@
+package AvanzeUno;
+import java.util.Scanner;
+
+
+public class InAndOut {
+	private static Scanner in;
+
+	public static void main(String[] args) {
+		String line;
+		in = new Scanner(System.in);
+		System.out.print("ESTADO: ");
+		line = in.nextLine();
+		
+		if(line == "OCUPADO") {
+			for(int i = 0; i < 10; i++)
+			System.out.println("You said: " + line);
+		}
+		
+		if(line == "DESOCUPADO") {
+			System.out.println("You said: " + line);
+		}
+		
+		}
+}

@@ -1,0 +1,40 @@
+package asistentePOO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario {
+	
+	private String nombre;
+	
+	int tiempoAviso = 20;
+	EstadoUsuario estadoActual = EstadoUsuario.DESOCUPADO;
+	AvisoUsuario avisoEstado = AvisoUsuario.NO_AVISADO;
+	//Evento[] agendaEventos = new Evento[0];
+	List<Evento> agendaEventos = new ArrayList<Evento>();
+	
+	int [] intereses = {0, 0, 0, 0, 0, 0};
+	List<String> feedDesoupado = new ArrayList<String>();
+	List<String> feedOcupado = new ArrayList<String>();
+	
+	public Usuario(String nombre) {
+	      this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+	      return nombre;
+	}
+	
+	/*
+	
+	public static String[] removeElements(String[] input, String deleteMe) {
+	    List result = new LinkedList();
+
+	    for(String item : input)
+	        if(!deleteMe.equals(item))
+	            result.add(item);
+
+	    return result.toArray(input);
+	}*/
+	
+}

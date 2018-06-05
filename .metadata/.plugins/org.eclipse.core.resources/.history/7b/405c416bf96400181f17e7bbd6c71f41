@@ -1,0 +1,12 @@
+package p3ab;
+
+public class User {
+	
+	String name;
+	int points;
+	
+	public User(String name) {
+		this.name = name;
+	}
+
+}

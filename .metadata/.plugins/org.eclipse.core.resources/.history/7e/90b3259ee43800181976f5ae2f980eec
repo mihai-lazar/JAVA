@@ -1,0 +1,30 @@
+package control_3;
+
+public class Fibonacci_Apellido2 
+{	
+	public static long serieFibo(long numeroIngresado){
+		
+	     int valorPrevio = 1;
+	     int preValorPrevio = 0;
+	     int ciclo = 0;
+	     int valorActual = 0;
+	     
+	     do{
+	         valorActual = valorPrevio + preValorPrevio;
+	         preValorPrevio = valorPrevio;
+	         valorPrevio = valorActual ;
+	         ciclo++;
+	     }while(ciclo<numeroIngresado-1);
+	     
+		  return valorActual;
+		 }
+	
+	public static void main(String[] args) //Si se ingresan numeros muy grandes, por ejemplo 60, no se ejecuta el programa, por ejemplo con 40
+	                                       //resulto 102334155 pero con 50 ya no da resultado.
+	{
+		if(Integer.parseInt(args[0]) == 0)
+           	System.out.print(0);
+		else
+			System.out.print(serieFibo(Integer.parseInt(args[0])));
+	}
+}

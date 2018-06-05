@@ -1,0 +1,7 @@
+package asistentePOO;
+
+public class Intereses {
+	
+	int [] intereses = {0, 0, 0, 0, 0, 0};
+
+}

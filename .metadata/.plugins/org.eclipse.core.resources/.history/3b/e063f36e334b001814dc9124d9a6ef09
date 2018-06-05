@@ -1,0 +1,28 @@
+package asistentePOO;
+
+import java.util.TimerTask;
+
+public class TimerFeed extends TimerTask {                                           							//Clase Timer
+    public void run() {
+    	for(int i = 0; i < MainAsistente.getAgendaUsuarios().getLargo(); i ++) {
+    		Usuario usuarioActualizacionFeed = MainAsistente.getAgendaUsuarios().getUsuario(i);      	
+    		for(int e = 0; e < usuarioActualizacionFeed.getIntereses().getLargo(); e ++) {
+    			if(usuarioActualizacionFeed.getIntereses().getInteres(e) == EstadoIntereses.INTERESADO)  {
+    		    	
+    				UnaNoticia nuevaNoticia = new UnaNoticia(MainAsistente.intereses.get(e).getText(), "no");
+    		    	if(usuarioActualizacionFeed.getEstado() == EstadoUsuario.DESOCUPADO) {
+    		    		usuarioActualizacionFeed.getFeedDesocupado().agregarNoticia(nuevaNoticia);
+    		    		if (MainAsistente.nombreUsuarioActivo.getText() != "") {
+    		    			if(usuarioActualizacionFeed.equals(MainAsistente.getUsuarioActual())) {
+    		    				MainAsistente.feedListaDefault.addElement(MainAsistente.intereses.get(e).getText());             
+    		    				MainAsistente.feedLista.setModel(MainAsistente.feedListaDefault);                                                    
+    		    			}
+    		    		}
+    		    	}else {
+    		    		usuarioActualizacionFeed.getFeedOcupado().agregarNoticia(nuevaNoticia);	    		    		
+    		    	}
+    		    }
+    		}
+    	}
+   }
+}

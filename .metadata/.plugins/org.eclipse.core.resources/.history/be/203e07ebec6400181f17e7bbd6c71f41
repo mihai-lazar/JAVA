@@ -1,0 +1,11 @@
+package p1a;
+
+public class Totem {
+	
+	Jaula jaula;
+	
+	public Totem(Jaula jaula) {
+		this.jaula = jaula;
+	}
+
+}

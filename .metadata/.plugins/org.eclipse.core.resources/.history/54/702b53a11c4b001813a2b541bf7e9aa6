@@ -1,0 +1,19 @@
+package asistentePOO;
+
+public class Intereses {
+	
+	EstadoIntereses[] intereses = {EstadoIntereses.NO_INTETRESADO, EstadoIntereses.NO_INTETRESADO, EstadoIntereses.NO_INTETRESADO, EstadoIntereses.NO_INTETRESADO, EstadoIntereses.NO_INTETRESADO, EstadoIntereses.NO_INTETRESADO};
+	//int [] intereses = {0, 0, 0, 0, 0, 0};
+	
+	public  void cambiarInteres(int index, EstadoIntereses estado) {
+		intereses[index] = estado;
+	}
+	
+	public  EstadoIntereses getInteres(int index) {
+		return intereses[index];
+	}
+
+	public  int getLargo(int index) {
+		return intereses.length;
+	}
+}

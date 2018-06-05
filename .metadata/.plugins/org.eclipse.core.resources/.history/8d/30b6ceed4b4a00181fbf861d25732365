@@ -1,0 +1,7 @@
+package asistentePOO;
+
+public class ListaTareas {
+	
+	private Tarea[] agendaEventos = new Tarea[0];
+		
+}

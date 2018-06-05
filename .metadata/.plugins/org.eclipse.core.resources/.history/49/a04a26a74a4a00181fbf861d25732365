@@ -1,0 +1,89 @@
+package asistentePOO;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario {
+	
+	private String nombre;
+	
+	int tiempoAviso = 20;
+	private EstadoUsuario estadoActual = EstadoUsuario.DESOCUPADO;
+	private AvisoUsuario avisoEstado = AvisoUsuario.NO_AVISADO;
+	private Evento[] agendaEventos = new Evento[0];
+	//List<Evento> agendaEventos = new ArrayList<Evento>();
+	
+	int [] intereses = {0, 0, 0, 0, 0, 0};
+	List<String> feedDesoupado = new ArrayList<String>();
+	List<String> feedOcupado = new ArrayList<String>();
+	
+	
+	//NOMBRE
+	public Usuario(String nombre) {
+	    this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	//ESTADO
+	public void setEstado(EstadoUsuario estado) {
+		estadoActual = estado;
+	}
+	
+	public EstadoUsuario getEstado() {
+		return estadoActual;
+	}
+	
+	
+	//AVISO
+	public void setAviso(AvisoUsuario aviso) {
+		avisoEstado = aviso;
+	}
+
+	public AvisoUsuario getAviso() {
+		return avisoEstado;
+	}
+	
+	
+	//LISTA TARREAS
+	public  void removeTarea(int indexBorrar) {
+		Evento[] nuevaAgendaEventos = new Evento[agendaEventos.length - 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < agendaEventos.length ; i++) {
+	        if(i != indexBorrar) {
+	        	nuevaAgendaEventos[e] = agendaEventos[i];
+	        	e++;
+	        }
+	    }
+	    agendaEventos = nuevaAgendaEventos;
+	}
+	
+	public  void addTarea(int indexAgregar, Evento evento) {
+		Evento[] nuevaAgendaEventos = new Evento[agendaEventos.length + 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < nuevaAgendaEventos.length ; i++) {
+	        if(i == indexAgregar) {
+	        	nuevaAgendaEventos[i] = evento;	
+	        }
+	        nuevaAgendaEventos[i] = agendaEventos[e];
+	        e++;
+	       
+	    }
+	    agendaEventos = nuevaAgendaEventos;
+	    System.out.println(agendaEventos[0]);
+	    System.out.println(nuevaAgendaEventos[0]);
+	}
+	
+	public  Evento getTarea(int index) {
+		return agendaEventos[index];
+	}
+	
+	public  int getLargo() {
+		return agendaEventos.length;
+	}
+	
+}

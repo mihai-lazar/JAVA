@@ -1,0 +1,19 @@
+package exercise18;
+
+public class Juego {
+	
+	
+	public static void main(String[] args) 
+	{
+		Deck deck = new Deck("Deck");
+		deck.shuffle();
+
+		Hand hand = new Hand("Hand");
+		deck.deal(hand, 5);
+		hand.display();
+		
+		System.out.println(deck);
+	}
+
+
+}

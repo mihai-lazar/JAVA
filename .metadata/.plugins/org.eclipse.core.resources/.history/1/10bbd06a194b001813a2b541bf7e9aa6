@@ -1,0 +1,24 @@
+package asistentePOO;
+
+import java.util.Date;
+
+public class Llamada {
+	private String nombre;
+	private String numero;
+	private Date fechaHora;
+	
+	public Llamada(String nombre, String numero, Date fechaHora) {
+	    this.nombre = nombre;
+	    this.numero = numero;
+	    this.fechaHora = fechaHora;
+	}
+	
+	public String getNombre() {
+	    return nombre;
+	}
+	
+	public Date getFechaHora() {
+	    return fechaHora;
+	}
+}
+

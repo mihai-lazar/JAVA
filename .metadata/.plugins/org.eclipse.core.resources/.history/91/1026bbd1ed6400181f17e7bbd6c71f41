@@ -1,0 +1,15 @@
+package p1a;
+
+public class QR extends Totem{
+	
+	String QR;
+
+	public QR(Jaula jaula) {
+		super(jaula);
+	}
+	
+	public void getQR() {
+		getInfo();
+	}
+
+}

@@ -1,0 +1,17 @@
+package p1a;
+
+public class Especie extends Animal{
+	String especie;
+	String alimentacion;
+	String crecimiento;
+	String zona;
+
+	public Especie(String id, String nombre, String especie, String alimentacion, String crecimiento, String zona) {
+		super(id, nombre);
+		this.especie = especie;
+		this.alimentacion = alimentacion;
+		this.crecimiento = crecimiento;
+		this.zona = zona;
+	}
+
+}

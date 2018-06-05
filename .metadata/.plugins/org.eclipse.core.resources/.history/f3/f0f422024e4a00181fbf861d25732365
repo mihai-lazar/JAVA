@@ -1,0 +1,49 @@
+package asistentePOO;
+
+public class AgendaUsuarios {
+	
+	private Usuario[] agendaUsuarios = new Usuario[0];
+	
+	public AgendaUsuarios() {
+	}
+	
+	//LISTA TARREAS
+	public  void removerTarea(int index) {
+		Tarea[] nuevaAgendaTareas = new Tarea[agendaUsuarios.length - 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < agendaUsuarios.length ; i++) {
+	        if(i != index) {
+	        	nuevaAgendaTareas[e] = agendaUsuarios[i];
+	        	e++;
+	        }
+	    }
+	    agendaTareas = nuevaAgendaTareas;
+	}
+	
+	public  void agregarTarea(int index, Tarea evento) {
+		Tarea[] nuevaAgendaTareas = new Tarea[agendaUsuarios.length + 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < nuevaAgendaTareas.length ; i++) {
+	        if(i == index) {
+	        	nuevaAgendaTareas[i] = evento;
+	        }else {
+	        	nuevaAgendaTareas[i] = agendaUsuarios[e];
+	        	e++;
+	        }
+	       
+	    }
+	    agendaUsuarios = nuevaAgendaTareas;
+	}
+	
+	public  Tarea getTarea(int index) {
+		return agendaUsuarios[index];
+	}
+	
+	public  int getLargo() {
+		return agendaUsuarios.length;
+	}
+	
+		
+}

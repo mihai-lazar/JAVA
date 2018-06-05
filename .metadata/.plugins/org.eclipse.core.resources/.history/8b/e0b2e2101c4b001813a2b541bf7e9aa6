@@ -1,0 +1,23 @@
+package asistentePOO;
+
+public class Intereses {
+	
+	int [] intereses = {0, 0, 0, 0, 0, 0};
+	
+	public  void cambiarInteres(int index, int estado) {
+		Tarea[] nuevaAgendaTareas = new Tarea[agendaTareas.length + 1];
+
+		int e = 0;
+	    for(int i = 0 ; i < nuevaAgendaTareas.length ; i++) {
+	        if(i == index) {
+	        	nuevaAgendaTareas[i] = evento;
+	        }else {
+	        	nuevaAgendaTareas[i] = agendaTareas[e];
+	        	e++;
+	        }
+	       
+	    }
+	    agendaTareas = nuevaAgendaTareas;
+	}
+
+}
