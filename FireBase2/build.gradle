@@ -24,11 +24,9 @@ dependencies {
     implementation 'com.google.guava:guava:23.0'
 
     // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
     
     implementation 'com.google.firebase:firebase-admin:6.1.0'
-    
-    compile 'com.google.guava:guava:23.0'  // Google Guava dependency
-    compile 'com.google.firebase:firebase-admin:6.1.0'  // Google Guava dependency
 }
 
 

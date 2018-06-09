@@ -1,8 +1,0 @@
-package exercise18;
-
-public class Ex141 extends Player{
-
-	   public Ex141(String name){
-	      super(name);
-	   }
-}

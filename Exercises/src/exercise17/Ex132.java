@@ -148,8 +148,9 @@ package exercise17;
 	    			indexD2++;
 	    		}
 	    	}
-	    		
+	    	
 	        return newdeck;
+	        
 	    }
 
 	    /**
@@ -197,7 +198,58 @@ package exercise17;
 	            }
 	        }
 	    	
+	    }
+	    
+	    public static void quickSort(int[] vector, int izquierda, int derecha) {
+	        int pivote = vector[izquierda];
+	        int i = izquierda;
+	        int j = derecha;
+	        int auxIntercambio;
+	        while (i < j) {
+	            while (vector[i] <= pivote && i < j) {
+	                i++;
+	            }
+	            while (vector[j] > pivote) {
+	                j--;
+	            }
+	            if (i < j) {
+	                auxIntercambio = vector[i];
+	                vector[i] = vector[j];
+	                vector[j] = auxIntercambio;
+	            }
+	        }
+	        vector[izquierda] = vector[j];
+	        vector[j] = pivote;
+	        if (izquierda < j - 1) {
+	            quickSort(vector, izquierda, j - 1);
+	        }
+	        if (j + 1 < derecha) {
+	            quickSort(vector, j + 1, derecha);
+	        }
+	    }
+	    
+	    public Ex132 Quicksort() {
+	    	Ex132 d1 = new Ex132(this.cards.length/2);
+	    	Ex132 d2 = new Ex132(this.cards.length/2);
 	    	
+	    	for(int i = 0 ; i < this.cards.length/2; i++) {
+	    		d1.cards[i] = this.cards[i];
+	    	}  
+	    	for(int i = this.cards.length/2; i < this.cards.length; i++) {
+    			d2.cards[i - this.cards.length/2] = this.cards[i];
+	    	}  
+	    	
+	    	System.out.println(Arrays.toString(d1.cards));
+	    	System.out.println(Arrays.toString(d2.cards));
+	    	d1.selectionSort();
+	    	d2.selectionSort();
+	    	
+	    	System.out.println(Arrays.toString(d1.cards));
+	    	System.out.println(Arrays.toString(d2.cards));
+	    	System.out.println(Arrays.toString(merge(d1,d2).cards));
+	    	
+
+	        return merge(d1,d2);
 	    }
 
 	}
