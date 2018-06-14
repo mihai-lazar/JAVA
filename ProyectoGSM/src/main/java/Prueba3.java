@@ -41,6 +41,10 @@ public class Prueba3 {
 	
 	DataSnapshot todo;
 	
+	long horasTotales;
+	
+	int test = 0;
+	
 	private static JList<String> listaTiempos = new JList<String>();
 	private static DefaultListModel<String> listaTiemposDefault = new DefaultListModel<String>();
 	
@@ -83,12 +87,12 @@ public class Prueba3 {
 		ImageIcon img = new ImageIcon("./icono.png");
 		frame.setIconImage(img.getImage());
 		
-		JLabel EstadoDB = new JLabel("...");
-		EstadoDB.setForeground(Color.GRAY);
-		EstadoDB.setFont(new Font("Tahoma", Font.BOLD, 35));
-		EstadoDB.setHorizontalAlignment(SwingConstants.RIGHT);		
-		EstadoDB.setBounds(197, 135, 218, 38);
-		frame.getContentPane().add(EstadoDB);
+		JLabel estadoMaquina = new JLabel("...");
+		estadoMaquina.setForeground(Color.GRAY);
+		estadoMaquina.setFont(new Font("Tahoma", Font.BOLD, 35));
+		estadoMaquina.setHorizontalAlignment(SwingConstants.RIGHT);		
+		estadoMaquina.setBounds(197, 135, 218, 38);
+		frame.getContentPane().add(estadoMaquina);
 		
 		JLabel idMaquina = new JLabel("...");
 		idMaquina.setForeground(Color.GRAY);
@@ -96,6 +100,13 @@ public class Prueba3 {
 		idMaquina.setFont(new Font("Tahoma", Font.BOLD, 35));
 		idMaquina.setBounds(197, 86, 218, 38);
 		frame.getContentPane().add(idMaquina);
+		
+		JLabel tiempoMaquina = new JLabel("...");
+		tiempoMaquina.setHorizontalAlignment(SwingConstants.RIGHT);
+		tiempoMaquina.setForeground(Color.GRAY);
+		tiempoMaquina.setFont(new Font("Tahoma", Font.BOLD, 35));
+		tiempoMaquina.setBounds(197, 184, 218, 38);
+		frame.getContentPane().add(tiempoMaquina);
 		
 		
 		
@@ -116,7 +127,7 @@ public class Prueba3 {
 		ref.addValueEventListener(new ValueEventListener() {
 			  @Override
 			  public void onDataChange(DataSnapshot dataSnapshot) {		
-				  
+				  	
 				  	todo = dataSnapshot;
 				    
 				    listaMaquinasDefault = new DefaultListModel<String>();
@@ -125,13 +136,14 @@ public class Prueba3 {
 		            	String ID = child.getKey();
 		            	listaMaquinasDefault.addElement(ID);	  
 		            	if(ID.equals(selectedID)) {
+		            		horasTotales = 0;
 		            		listaTiemposDefault = new DefaultListModel<String>();
 							idMaquina.setText(ID);
 							for(DataSnapshot datos : child.getChildren()) {
 								String dato = datos.getKey();
 								if(dato.equals("ESTADO")) {
 									ESTADO = (String) datos.getValue();
-									EstadoDB.setText(ESTADO); 
+									estadoMaquina.setText(ESTADO); 
 								}
 					            		
 								if(dato.equals("USO")) {
@@ -147,37 +159,50 @@ public class Prueba3 {
 					            						
 											long milliSeconds1= Long.parseLong(splited[0]);
 											long milliSeconds2= Long.parseLong(splited[1]);
-											String dateAsString1 = fecha.format (milliSeconds1);
+											String datosString = fecha.format (milliSeconds1);
 					            						
 											if(splited[1].equals("0")) {
 					            							
-												listaTiemposDefault.addElement(dateAsString1);
+												listaTiemposDefault.addElement(datosString);
 					            							
-											}else {	            						 						
+											}else{	            						 						
 					            						
 												long millis = milliSeconds2 - milliSeconds1;
-												int h = (int) (((millis) / 1000) / 3600);
-												int m = (int) ((((millis) / 1000) / 60) % 60);
-												int s = (int) (((millis) / 1000) % 60);
+												
+												horasTotales = horasTotales + millis;
+												
+												int h = (int) ((millis / 1000) / 3600);
+												int m = (int) (((millis / 1000) / 60) % 60);
+												int s = (int) ((millis / 1000) % 60);
 					            						
-												listaTiemposDefault.addElement(dateAsString1 + " " + h + ":" + m + ":" + s); 
+												listaTiemposDefault.addElement(datosString + " " + h + ":" + m + ":" + s); 
 											}
 										}
 									}
 								}
 							}
+							
+							int h = (int) ((horasTotales / 1000) / 3600);
+							int m = (int) (((horasTotales / 1000) / 60) % 60);
+							int s = (int) ((horasTotales / 1000) % 60);				
+							String tiempoTotal = Integer.toString(h) + ":" + Integer.toString(m) + ":" + Integer.toString(s);
+				            tiempoMaquina.setText(tiempoTotal); 
+				        
+				            listaTiempos.setModel(listaTiemposDefault); 
+				            		
 						}
 		            	
 		            }
-		        
-		            listaMaquinas.setModel(listaMaquinasDefault); 	
-		            listaTiempos.setModel(listaTiemposDefault); 
+		            
+		            listaMaquinas.setModel(listaMaquinasDefault); 
+		            
 			  }
 
 			  @Override
 			  public void onCancelled(DatabaseError error) {
 			  }
 		});
+		
 		
 		JLabel EstadoTXT = new JLabel("REGISTROS");
 		EstadoTXT.setForeground(Color.GRAY);
@@ -222,12 +247,13 @@ public class Prueba3 {
 					for(DataSnapshot child : todo.getChildren()) {
 						String ID = child.getKey();
 						if(ID.equals(selectedID)) {
+							horasTotales = 0;
 							idMaquina.setText(ID);
 							for(DataSnapshot datos : child.getChildren()) {
 								String dato = datos.getKey();
 								if(dato.equals("ESTADO")) {
 									ESTADO = (String) datos.getValue();
-									EstadoDB.setText(ESTADO); 
+									estadoMaquina.setText(ESTADO); 
 								}
 					            		
 								if(dato.equals("USO")) {
@@ -252,9 +278,12 @@ public class Prueba3 {
 											}else {	            						 						
 					            						
 												long millis = milliSeconds2 - milliSeconds1;
-												int h = (int) (((millis) / 1000) / 3600);
-												int m = (int) ((((millis) / 1000) / 60) % 60);
-												int s = (int) (((millis) / 1000) % 60);
+												
+												horasTotales = horasTotales + millis;
+												
+												int h = (int) ((millis / 1000) / 3600);
+												int m = (int) (((millis / 1000) / 60) % 60);
+												int s = (int) ((millis / 1000) % 60);
 					            						
 												listaTiemposDefault.addElement(dateAsString1 + " " + h + ":" + m + ":" + s); 
 											}
@@ -265,7 +294,13 @@ public class Prueba3 {
 						}
 					            	
 					}
-					        
+					
+					int h = (int) ((horasTotales / 1000) / 3600);
+					int m = (int) (((horasTotales / 1000) / 60) % 60);
+					int s = (int) ((horasTotales / 1000) % 60);
+					String tiempoTotal = Integer.toString(h) + ":" + Integer.toString(m) + ":" + Integer.toString(s);
+		            tiempoMaquina.setText(tiempoTotal);         
+				
 					listaTiempos.setModel(listaTiemposDefault);   
 							 				  
 				}
