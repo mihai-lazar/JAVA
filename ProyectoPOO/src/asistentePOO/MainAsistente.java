@@ -224,7 +224,7 @@ public class MainAsistente {
 							}
 							
 							for (int i = 0; i < usuarioActual.getFeedDesocupado().getLargo(); i++) {               // revisamos todos los feed que tiene el usuario en su lista feed
-								feedListaDefault.addElement(usuarioActual.getFeedDesocupado().getNoticia(i).getNombre());         // agregamos cada feed de la lista personal a la lista defoult
+								feedListaDefault.addElement(usuarioActual.getFeedDesocupado().getNoticia(i).getTitulo());         // agregamos cada feed de la lista personal a la lista defoult
 							}
 							
 							for (int i = 0; i < usuarioActual.getLlamadasDesocupado().getLargo(); i++) {                   // revisamos todos los feed que tiene el usuario en su lista feed						
@@ -531,7 +531,7 @@ public class MainAsistente {
 							feedLista.setModel(feedListaDefault);                         // ponemos el modelo (copiamos de la defout a la que se muestra)		
 						
 							for (int i = 0; i < usuarioActual.getFeedDesocupado().getLargo(); i++) {               // revisamos todos los feed que tiene el usuario en su lista feed
-								feedListaDefault.addElement(usuarioActual.getFeedDesocupado().getNoticia(i).getNombre());         // agregamos cada feed de la lista personal a la lista defoult
+								feedListaDefault.addElement(usuarioActual.getFeedDesocupado().getNoticia(i).getTitulo());         // agregamos cada feed de la lista personal a la lista defoult
 							}
 						
 						
@@ -555,7 +555,7 @@ public class MainAsistente {
 						int seleccionIndex = feedLista.getSelectedIndex();               // se revisa si se tiene algun elemento de
 																					     // la agenda selecionado
 						if (seleccionIndex >= 0) {						
-							feedListaDefault.set(seleccionIndex, "<html><font color=red>" + usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).getNombre() + "</font></html>");   
+							feedListaDefault.set(seleccionIndex, "<html><font color=red>" + usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).getTitulo() + "</font></html>");   
 							usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).setVista();
 						}
 					}
@@ -605,7 +605,7 @@ public class MainAsistente {
 								
 								if(usuarioActual.getFeedOcupado().getLargo() > 0){ 
 									for(int i = 0 ; i < usuarioActual.getFeedOcupado().getLargo() ; i++) {
-										feedListaDefault.addElement(usuarioActual.getFeedOcupado().getNoticia(i).getNombre());
+										feedListaDefault.addElement(usuarioActual.getFeedOcupado().getNoticia(i).getTitulo());
 										usuarioActual.getFeedDesocupado().agregarNoticia(usuarioActual.getFeedOcupado().getNoticia(i));
 									}
 									usuarioActual.getFeedOcupado().vaciarFeed();

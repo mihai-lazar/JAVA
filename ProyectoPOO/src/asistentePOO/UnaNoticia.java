@@ -2,17 +2,17 @@ package asistentePOO;
 
 public class UnaNoticia {
 	
-	private String nombre;
+	private String titulo;
 	private String url;
 	private EstadoNoticiaUsuario estadoActual = EstadoNoticiaUsuario.NO_VISTA;
 	
-	public UnaNoticia(String nombre, String url) {
-	    this.nombre = nombre;
+	public UnaNoticia(String titulo, String url) {
+	    this.titulo = titulo;
 	    this.url = url;
 	}
 	
-	public String getNombre() {
-	    return nombre;
+	public String getTitulo() {
+	    return titulo;
 	}
 	
 	public void setVista() {
