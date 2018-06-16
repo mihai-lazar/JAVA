@@ -35,8 +35,8 @@
 		<item value="400" key="height"/>
 	</section>
 	<section name="FatJarPackageWizard">
-		<item value="D:\DRIVE\2018\PrimerSemestre\OBJETOS\JAVA" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="Prueba3 - FireBase2" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="D:\DRIVE\2018\PrimerSemestre\OBJETOS\JAVA.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="MainAsistente (1) - ProyectoPOO" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
 		<item value="C:\Users\mihai\Desktop\TEST\Prueba.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
@@ -48,6 +48,8 @@
 			<item value="D:\DRIVE\2018\PrimerSemestre\OBJETOS\JAVA.xml"/>
 			<item value=".xml"/>
 		</list>
+	</section>
+	<section name="RenameInformationPopup">
 	</section>
 	<section name="ClasspathContainerSelectionPage">
 		<item value="9" key="index"/>

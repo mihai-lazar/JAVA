@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.stream.Stream"/>
-<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
 <fullyQualifiedTypeName name="java.util.Timer"/>
@@ -57,7 +52,12 @@
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="rss.stores.ArrayListRSSFeedStore"/>
+<fullyQualifiedTypeName name="rss.RSSFeedReader"/>
+<fullyQualifiedTypeName name="rss.RSSItem"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.Desktop"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

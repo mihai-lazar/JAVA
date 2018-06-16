@@ -1,13 +1,13 @@
 package asistentePOO;
 
-public class ListaFeedEliminadas {
+public class ListaFeedOcupadoUsuario {
 	
 	private UnaNoticia[] noticias = new UnaNoticia[0];
 	
-	public ListaFeedEliminadas() {
+	public ListaFeedOcupadoUsuario() {
 	}
 	
-	public  void agregarEliminada(UnaNoticia noticia) {
+	public  void agregarNoticia(UnaNoticia noticia) {
 		UnaNoticia[] nuevasNoticias = new UnaNoticia[noticias.length + 1];
 
 	    for(int i = 0 ; i < noticias.length ; i++) {
@@ -17,13 +17,24 @@ public class ListaFeedEliminadas {
 	    noticias = nuevasNoticias;
 	}
 	
-	public  boolean estaEliminada(String titulo) {
+	public  UnaNoticia getNoticia(int index) {
+		return noticias[index];
+	}
+	
+	public  int getLargo() {
+		return noticias.length;
+	}
+	
+	public  void vaciarFeed() {
+		noticias = new UnaNoticia[0];
+	}
+	
+	public  boolean estaNoticia(String titulo) {
 		for(int i = 0 ; i < noticias.length ; i++ ) {
 			if(noticias[i].getTitulo().equals(titulo))
 				return true;	
 		}
 		return false;
 	}
-	
-
+		
 }
