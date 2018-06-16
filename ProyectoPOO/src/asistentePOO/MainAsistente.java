@@ -1,6 +1,7 @@
 package asistentePOO;
 
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
@@ -30,6 +31,7 @@ import javax.swing.UIManager;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Desktop;
 
 public class MainAsistente {
 
@@ -144,7 +146,7 @@ public class MainAsistente {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 506, 457);
+		frame.setBounds(100, 100, 564, 457);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -154,7 +156,7 @@ public class MainAsistente {
 		JTabbedPane PanelTabs = new JTabbedPane(JTabbedPane.TOP);
 		PanelTabs.setForeground(Color.BLACK);
 		PanelTabs.setBackground(Color.WHITE);
-		PanelTabs.setBounds(10, 45, 471, 362);
+		PanelTabs.setBounds(10, 45, 538, 362);
 		frame.getContentPane().add(PanelTabs);
 		
 		JPanel UsuariosTab = new JPanel();
@@ -405,46 +407,46 @@ public class MainAsistente {
 		FeedTab.setLayout(null);
 		
 				JScrollPane scrollPane_2 = new JScrollPane();
-				scrollPane_2.setBounds(139, 11, 188, 237);
+				scrollPane_2.setBounds(10, 11, 513, 237);
 				FeedTab.add(scrollPane_2);
 				scrollPane_2.setViewportView(feedLista);
 				
 				JButton leerFeed = new JButton("LEER");
 				leerFeed.setBackground(Color.BLACK);
-				leerFeed.setBounds(139, 259, 89, 23);
+				leerFeed.setBounds(10, 259, 89, 23);
 				FeedTab.add(leerFeed);
 				
 				JButton borrarFeed = new JButton("BORRAR");
 				borrarFeed.setBackground(Color.BLACK);
-				borrarFeed.setBounds(238, 259, 89, 23);
+				borrarFeed.setBounds(109, 259, 89, 23);
 				FeedTab.add(borrarFeed);
 				
 				JButton eliminarVistas = new JButton("ELIMINAR VISTAS");
 				eliminarVistas.setBackground(Color.BLACK);
-				eliminarVistas.setBounds(139, 292, 188, 23);
+				eliminarVistas.setBounds(10, 293, 188, 23);
 				FeedTab.add(eliminarVistas);
-				feedDeporte.setBackground(Color.WHITE);
-				feedDeporte.setBounds(333, 9, 127, 23);
-				FeedTab.add(feedDeporte);
 				feedDeporte.setEnabled(false);
+				feedDeporte.setBackground(Color.WHITE);
+				feedDeporte.setBounds(204, 252, 127, 23);
+				FeedTab.add(feedDeporte);
 				feedTecnologia.setBackground(Color.WHITE);
-				feedTecnologia.setBounds(333, 35, 127, 23);
+				feedTecnologia.setBounds(204, 278, 127, 23);
 				FeedTab.add(feedTecnologia);
 				feedTecnologia.setEnabled(false);
 				feedNacional.setBackground(Color.WHITE);
-				feedNacional.setBounds(333, 61, 127, 23);
+				feedNacional.setBounds(204, 304, 127, 23);
 				FeedTab.add(feedNacional);
 				feedNacional.setEnabled(false);
 				feedInternacional.setBackground(Color.WHITE);
-				feedInternacional.setBounds(333, 87, 127, 23);
+				feedInternacional.setBounds(333, 252, 127, 23);
 				FeedTab.add(feedInternacional);
 				feedInternacional.setEnabled(false);
 				feedComida.setBackground(Color.WHITE);
-				feedComida.setBounds(333, 113, 127, 23);
+				feedComida.setBounds(333, 278, 127, 23);
 				FeedTab.add(feedComida);
 				feedComida.setEnabled(false);
 				feedModa.setBackground(Color.WHITE);
-				feedModa.setBounds(333, 138, 127, 23);
+				feedModa.setBounds(333, 304, 127, 23);
 				FeedTab.add(feedModa);
 				feedModa.setEnabled(false);
 				
@@ -521,6 +523,8 @@ public class MainAsistente {
 							for(int i = 0 ; i < usuarioActual.getFeedDesocupado().getLargo() ; i++) {
 								if(usuarioActual.getFeedDesocupado().getNoticia(i).getEstado() == EstadoNoticiaUsuario.NO_VISTA) {
 									nuevoFeedDesocupado.agregarNoticia(usuarioActual.getFeedDesocupado().getNoticia(i));
+								}else {
+									usuarioActual.getFeedEliminado().agregarEliminada(usuarioActual.getFeedDesocupado().getNoticia(i));
 								}
 							}
 						
@@ -542,7 +546,8 @@ public class MainAsistente {
 					public void actionPerformed(ActionEvent e) {
 						int seleccionIndex = feedLista.getSelectedIndex();               // se revisa si se tiene algun elemento de
 																					     // la agenda selecionado
-						if (seleccionIndex >= 0) {				
+						if (seleccionIndex >= 0) {		
+							usuarioActual.getFeedEliminado().agregarEliminada(usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex));
 							usuarioActual.getFeedDesocupado().removerNoticia(seleccionIndex);                 // lo agregamos a la lista de eventos del usuario
 							feedListaDefault.removeElementAt(seleccionIndex);                        // se elimina el elemento de la lista
 							feedLista.setModel(feedListaDefault);                           //ponemos el modelo
@@ -557,6 +562,9 @@ public class MainAsistente {
 						if (seleccionIndex >= 0) {						
 							feedListaDefault.set(seleccionIndex, "<html><font color=red>" + usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).getTitulo() + "</font></html>");   
 							usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).setVista();
+							try {
+							    Desktop.getDesktop().browse(new URL(usuarioActual.getFeedDesocupado().getNoticia(seleccionIndex).getUrl()).toURI());
+							} catch (Exception exception) {}
 						}
 					}
 				});

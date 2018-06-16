@@ -46,5 +46,13 @@ public class ListaFeedDesocupadoUsuario {
 		return noticias.length;
 	}
 	
+	public  boolean estaNoticia(String titulo) {
+		for(int i = 0 ; i < noticias.length ; i++ ) {
+			if(noticias[i].getTitulo().equals(titulo))
+				return true;	
+		}
+		return false;
+	}
+	
 		
 }

@@ -12,6 +12,7 @@ public class UnUsuario {
 	private ListaInteresesUsuario intereses = new ListaInteresesUsuario();
 	private ListaFeedDesocupadoUsuario feedDesocupado = new ListaFeedDesocupadoUsuario();
 	private ListaFeedOcupadoUsuario feedOcupado = new ListaFeedOcupadoUsuario();
+	private ListaFeedEliminadas feedEliminado = new ListaFeedEliminadas();
 	private ListaLlamadasDesocupadoUsuario llamadasDesocupado = new ListaLlamadasDesocupadoUsuario();
 	private ListaLlamadasOcupadoUsuario llamadasOcupado = new ListaLlamadasOcupadoUsuario();
 	
@@ -70,6 +71,10 @@ public class UnUsuario {
 	
 	public ListaFeedOcupadoUsuario getFeedOcupado() {
 		return feedOcupado;
+	}
+	
+	public ListaFeedEliminadas getFeedEliminado() {
+		return feedEliminado;
 	}
 	
 	
